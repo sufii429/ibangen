@@ -7,6 +7,7 @@
 @layer base {
   html {
     font-family: 'Inter', sans-serif;
+    text-size-adjust: 100%; /* Prevent mobile text scaling */
   }
 }
 
@@ -15,12 +16,22 @@
     animation: slideIn 0.3s ease-out;
   }
 
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+
   .animate-scale {
     transition: transform 0.2s ease;
   }
 
   .animate-scale:hover {
     transform: scale(1.02);
+  }
+
+  .glass {
+    background: rgba(31, 41, 55, 0.3); /* bg-gray-800/30 */
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(55, 65, 81, 0.5); /* border-gray-700/50 */
   }
 }
 
@@ -31,6 +42,15 @@
   }
   to {
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
     opacity: 1;
   }
 }
